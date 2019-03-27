@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style>
+
+
+div {
+	font-size:20px;
+ 	background-color: rgba(224, 90, 120, 0.3);
+ 	text-align: center;
+ 	width: 300px;
+ 	height: 300px;
+ 	margin: 70px;
+ 	border: 1px solid #4CAF50;
+ 	padding: 25px;
+}
+
+li {
+	color: red;
+	font-weight: bold;
+	}
+	</style>
+
+
+</head>
+<body>
+
+
+<div id="divBody"><h1>Basic DOM</h1>
+<p>This is a list of stuff</p>
+	<ol id="idList" class="list">
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+	</ol>
+<br>
+<button id=idbut1 name="button1" onclick="clickShow()">Show</button>
+<button id=idbut2 name="button2" onclick="clickAdd()">Add</button>
+</div>
+
+<script>
+function clickShow () {
+ 	let showList = document.getElementById("idList");
+  	console.log(idList.textContent);
+};
+
+counter = 4;
+function clickAdd () {
+	let node = document.createElement("li"); // Create a <li> node
+	let textnode = document.createTextNode("\t" + "Item " + counter++ + "\t" + "\n" + "\t"); // Create a text node
+	node.appendChild(textnode); // Append the text to <li>
+	document.getElementById("idList").appendChild(node); // Append <li> to <ul> 
+};
+
+</script>
+
+</body>
+</html>

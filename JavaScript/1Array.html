@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+.button {
+	background-color: pink;
+	display: inline-block;
+	padding: 15px 32px;
+}
+	</style>
+</head>
+<body>
+<h1>ARRAYS</h1>
+<form id="array">
+<input id="idInput">
+<br>
+<br>
+<button id=idbutton1 type="button" name="button1" onchange="fun1 ()">Add</button>
+<button id=idbutton2 type="button" name="button1" onclick= "fun2 ()">Show</button>
+<button id=idbutton3 type="button" name="button1" onclick= "run ()">Total</button>
+<button id=idbutton4 type="reset" name="button1" onclick="fun4 ()" value="reset">Clear</button>
+<br>
+<br>
+<div>
+<p id="idMess">Message Area</p>
+
+
+</div>
+</form>
+<script>
+var myArray = [];
+let watchTheInputBox = document.getElementById('idInput');
+let message = document.getElementById('idMess');
+let arrayMessage = myArray.value;
+
+watchTheInputBox.addEventListener('change', fun1);
+function fun1 () {//add numbers to array
+	if(isNaN(watchTheInputBox.value)){
+ 		message.textContent = "Whoever you are, this is not a number";
+	} else {
+		message.textContent = "Message Area";
+  	const newItem = myArray.push(Number(watchTheInputBox.value));
+  	newItem.value = myArray;
+	}
+}
+watchTheInputBox.addEventListener('click', fun2);
+function fun2 () {                           
+	if (idMess.textContent === "Message Area") {  
+		idMess.textContent = myArray;           
+	} else {                                        
+		idMess.textContent = "Message Area"}              
+};
+
+watchTheInputBox.addEventListener('click', run);
+function fun3(myArray) {
+  var total = 0;
+    for(var i = 0; i < myArray.length; i++){
+      total += myArray[i];
+    }
+    return total;
+}
+function run(){
+	idMess.textContent = "Total is " +  fun3(myArray);
+};
+
+watchTheInputBox.addEventListener('click', fun4);
+function fun4 () {//clear
+	myArray = [];
+	idMess.textContent = "Message Area";
+};
+
+</script>
+</body>
+</html>

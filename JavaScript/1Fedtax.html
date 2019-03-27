@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+table{
+  border-style: solid;
+  border-color: grey;
+}
+</style> 
+
+
+<div class ="form">
+		<h2>Tax Calculator</h2>
+		<form name="taxform" id="taxform">
+		<table>
+</div>
+
+
+<!-- line 1 nothing happens after document-->
+  <tr><td>
+   <label>Enter your taxable income from line 260 of your return &nbsp;&nbsp;</label>
+  </td>
+  <th scope="row">
+   <div align="left">
+    <input name="line1name" type="text" id="idline1" size="15">
+   </div>
+  </td>
+
+
+ <!--line 2 calculated field subtracts line 2 from line 1-->
+  <tr><td>
+   <label>Base Amount</label>
+  </td>
+  <th scope="row">   
+   <div align="left">
+    <input name="line2name" type="text" id="idline2" size="15">
+
+   </div>
+  </th>
+ </tr>
+  
+
+<!-- line 3 identifies line 1 minus 2 -->
+  <tr><td>
+   <label>Line 1 minus line 2 (this amount cannot be negative)</label>
+  </td>
+  <th scope="row">   
+   <div align="left">
+    <input name="line3name" type="text" id="idline3" size="15">
+   </div>
+  </th>
+ </tr>
+  
+
+<!-- line 4 identifies the tax rate calculated field -->
+  <tr><td>
+   <label>Federal Tax Rate</label>
+  </td>
+  <th scope="row">   
+   <div align="left">
+    <input name="line4name" type="text" id="idline4" size="15">
+   </div>
+  </th>
+ </tr>
+  
+<!-- line 5 which is line 3 times line 4 -->
+  <tr><td>
+   <label>Multiply the amount on line 3 by the tax rate on line 4</label>
+  </td>
+  <th scope="row">   
+   <div align="left">
+    <input name="line5name" type="text" id="idline5" size="15">
+   </div>
+  </th>
+ </tr>
+<!--onFocus="this.form.elements[1].focus()" -->
+<!-- line 6 which is tax from line 2 -->
+   <tr><td>
+   <label>Tax on the amount from line 2</label>
+  </td>
+   <th scope="row">
+   <div align="left">
+     <input name="line6name" type="text" id="idline6" size="15">                
+   </div>
+  </th>
+ </tr>
+
+
+<!-- line 7 which is tax from line 2 -->
+  <tr>
+
+  <td>
+   <label>Add lines 5 and 6</label>
+  </td>
+
+  <th scope="row">
+   <div align="left">
+    <input name="line7name" type="text" id="idline7" size="15"><br>
+   </div>
+  </th>
+
+
+ </tr>
+<!-- <tr><td>-->
+
+<!--  <th scope="row">
+  <div align="left">
+  <input name="Calculate" type="button" id="calcForm" value="Calculate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="reset" name="Reset" value="Reset">&nbsp;&nbsp;&nbsp;        Effective Tax Rate&nbsp;&nbsp;&nbsp;
+   <input name="Effective Rate" type="text" id="effrate" size="7"> -->
+ </div>
+
+
+  </th>
+ </tr>
+</table>
+
+
+  <input name="Calculate" type="button" id="calcForm" value="Calculate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="reset" name="Reset" value="Reset">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective Tax Rate&nbsp;&nbsp;&nbsp;
+   <input name="Effective Rate" type="text" id="effrate" size="5"> %
+</form>      
+</div>
+
+<script>
+const log = console.log
+//ti is taxable income
+// 15% on first $47,630 of ti, plus
+// 20.5% on next $47,629 of ti (on the portion of ti over 47,630 up to $95,259), plus 
+// 26% on next $52,408 of ti (on the portion of ti over $95,259 up to $147,667), plus 
+// 29% on next $62,704 of ti (on the portion of ti over 147,667 up to $210,371), plus
+// 33% of ti over $210,371
+
+	let idline1 = document.getElementById('idline1')
+	let idline2 = document.getElementById('idline2')
+ 	let idline3 = document.getElementById('idline3')
+	let idline4 = document.getElementById('idline4') 
+	let idline5 = document.getElementById('idline5')
+	let idline6 = document.getElementById('idline6')
+	let idline7 = document.getElementById('idline7')
+  let effrate = document.getElementById('effrate')
+
+	let answer = document.getElementById('calcForm');
+	answer.addEventListener('click', calcLine2); 
+
+function calcLine2() {
+	let answer;
+  let taxrates = [.15, .205, .26, .29, .33];
+  let maxtax = [0, 7144.5, 9763.95, 13626.08, 18184.16, 31810.24]
+	 if (idline1.value <= 47630) {
+		   idline2.value = Number(0).toFixed(2);
+		   idline3.value = Number(idline1.value - idline2.value).toFixed(2);
+		   idline4.value = ("x 15%");
+		   idline5.value = Number(idline3.value * taxrates[0]).toFixed(2);
+		   idline6.value = Number(idline2.value).toFixed(2);
+		   idline7.value = Number((idline1.value - idline2.value) * taxrates[0] - idline2.value).toFixed(2);
+       effrate.value = Number((idline5.value/idline1.value)*100).toFixed(2);
+	 } else if (idline1.value >47630 && idline1.value <=95259) {
+			  idline2.value = Number(47630).toFixed(2);
+		  	idline3.value = Number(idline1.value - 47630).toFixed(2);
+		  	idline4.value = ("x 20.5%");
+		  	idline5.value = Number(idline3.value * taxrates[1]).toFixed(2);
+		  	idline6.value = Number(maxtax[1]);
+		  	idline7.value = (Number(idline5.value) + Number(idline6.value)).toFixed(2);
+        effrate.value = Number((idline7.value/idline1.value)*100).toFixed(2);
+    } else if (idline1.value >95259 && idline1.value <=147667) {
+        idline2.value = Number(95259).toFixed(2);
+        idline3.value = Number(idline1.value - 95259).toFixed(2);
+        idline4.value = ("x 26%");
+        idline5.value = Number(idline3.value * taxrates[2]).toFixed(2);
+        idline6.value = Number(maxtax[2]);
+        idline7.value = (Number(idline5.value) + Number(idline6.value)).toFixed(2);
+        effrate.value = Number((idline7.value/idline1.value)*100).toFixed(2);
+    } else if (idline1.value >147667 && idline1.value <=210371) {
+        idline2.value = Number(147667).toFixed(2);
+        idline3.value = Number(idline1.value - 147667).toFixed(2);
+        idline4.value = ("x 29%");
+        idline5.value = Number(idline3.value * taxrates[3]).toFixed(2);
+        idline6.value = Number(maxtax[3]);
+        idline7.value = (Number(idline5.value) + Number(idline6.value)).toFixed(2);
+        effrate.value = Number((idline7.value/idline1.value)*100).toFixed(2);
+    } else if (idline1.value >210371) {
+        idline2.value = Number(210371).toFixed(2);
+        idline3.value = Number(idline1.value - 210371).toFixed(2);
+        idline4.value = ("x 33%");
+        idline5.value = Number(idline3.value * taxrates[4]).toFixed(2);
+        idline6.value = Number(maxtax[5]);
+        idline7.value = (Number(idline5.value) + Number(idline6.value)).toFixed(2);
+        effrate.value = Number((idline7.value/idline1.value)*100).toFixed(2);
+    }
+  }
+
+</script>
+</body>
+</html>

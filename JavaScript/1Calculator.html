@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+
+<style>
+
+input[type=text], select {
+  right: 150px;  
+  width: 180px;
+  height: 40px;
+  padding: 12px 20px;
+  background-color: #e7e7e7;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: #ff9900; /* Gray */
+  border: none;
+  color: black;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA; color: black;} /* Blue */
+.button3 {background-color: #00cc00; color: black;} /* Green */ 
+.button4 {background-color: #6666ff; color: black;} /* Purple */ 
+
+input[type=reset], select {
+	background-color: #f44336; color: black;/* red */
+ 	border: none;
+ 	color: black;
+ 	padding: 5px 20px;
+ 	text-align: center;
+ 	text-decoration: none;
+ 	display: inline-block;
+ 	font-size: 25px;
+ 	margin: 4px 2px;
+ 	cursor: pointer;
+ 	width: 224px;
+
+	} /* Black */
+
+</style>
+</head>
+
+
+
+
+
+
+<body>
+
+<h2>My Awesome Calculator</h2>
+
+<div>
+
+<!-- <form name="calculator"> -->
+
+<input id="input1" type="text" name="number1">Number<br>
+<input id="input2" type="text" name="number2">Number<br>
+<input id="value1" type="text" name="summary">Result<br>
+
+
+<button id="add" type="button" class="button button1" onclick="addNum()">+</button>
+<button id="sub" type="button" class="button button2" onclick="subNum()">-</button>
+<button id="mul" type="button" class="button button3" onclick="mulNum()">*</button>
+<button id="div" type="button" class="button button4" onclick="divNum()">/</button><br>
+<input type="reset" name="Reset" value="Reset">
+
+<!-- </form> -->
+</div>
+
+
+<script>
+
+ // let obj ={value:answer}
+  let input1 = document.getElementById('input1');
+  let input2 = document.getElementById('input2');
+  let answer = document.getElementById('value1');
+
+answer.addEventListener('click', addNum);
+function addNum () {
+  var answer = Number(input1.value) + Number(input2.value);
+  value1.value = answer;
+}
+
+answer.addEventListener('click', subNum);
+function subNum () {
+  var answer = Number(input1.value) - Number(input2.value);
+  value1.value = answer;
+}
+
+answer.addEventListener('click', mulNum);
+function mulNum () {
+  var answer = Number(input1.value) * Number(input2.value);
+  value1.value = answer;
+}
+
+answer.addEventListener('click', divNum);
+function divNum () {
+  var answer = Number(input1.value) / Number(input2.value);
+  value1.value = answer;
+}
+
+</script>
+
+
+
+</body>
+</html>
