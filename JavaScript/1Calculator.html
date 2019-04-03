@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>calculator</title>
+	<title>Calculator</title>
 
 <style>
 
@@ -19,7 +19,7 @@ input[type=text], select {
 }
 
 .button {
-  background-color: #ff9900; /* Gray */
+  background-color: #ff9900; /* Grey */
   border: none;
   color: black;
   padding: 5px 20px;
@@ -54,67 +54,57 @@ input[type=reset], select {
 </head>
 
 
-
-
-
-
 <body>
 
 <h2>My Awesome Calculator</h2>
 
 <div>
 
-<!-- <form name="calculator"> -->
+<!-- Input fields for numbers and result -->
+<input id="input1" type = "text" placeholder = "First number">Number<br>
+<input id="input2" type="text" placeholder = "Second number">Number<br>
+<input id="value1" type="text" placeholder = "Result">Result<br>
 
-<input id="input1" type="text" name="number1">Number<br>
-<input id="input2" type="text" name="number2">Number<br>
-<input id="value1" type="text" name="summary">Result<br>
-
-
+<!-- Buttons for calculations -->
 <button id="add" type="button" class="button button1" onclick="addNum()">+</button>
 <button id="sub" type="button" class="button button2" onclick="subNum()">-</button>
 <button id="mul" type="button" class="button button3" onclick="mulNum()">*</button>
 <button id="div" type="button" class="button button4" onclick="divNum()">/</button><br>
 <input type="reset" name="Reset" value="Reset">
-
-<!-- </form> -->
 </div>
 
 
 <script>
-
- // let obj ={value:answer}
+// Global variables in use for calculations
   let input1 = document.getElementById('input1');
   let input2 = document.getElementById('input2');
   let answer = document.getElementById('value1');
 
+// Add calculation
 answer.addEventListener('click', addNum);
 function addNum () {
   var answer = Number(input1.value) + Number(input2.value);
   value1.value = answer;
-}
-
+};
+// Subtract calculation
 answer.addEventListener('click', subNum);
 function subNum () {
   var answer = Number(input1.value) - Number(input2.value);
   value1.value = answer;
-}
-
+};
+// Multiply calculation
 answer.addEventListener('click', mulNum);
 function mulNum () {
   var answer = Number(input1.value) * Number(input2.value);
   value1.value = answer;
-}
-
+};
+// Divide calculation
 answer.addEventListener('click', divNum);
 function divNum () {
   var answer = Number(input1.value) / Number(input2.value);
   value1.value = answer;
-}
-
+};
 </script>
-
-
 
 </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style>
+
+
+
+.main {   /*main container*/
+	background: linen;
+	float: left;
+	border: 2px solid #4CAF50;
+	width: 300px;
+	height: 500px;
+	margin: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 10px;
+    font-size: 15px;
+}
+
+.clSide{/* left side class inside container div*/
+	float: left;
+	text-align: center;
+	width: 300px;
+
+
+	border: black;
+	background-color: green;
+	width: 50px;
+	height: 40px;
+	margin: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 10px;
+    font-size: 15px;
+}
+
+.clCard {/* class name of new div */
+	border: black;
+	background-color: green;
+	width: 50px;
+	height: 40px;
+	margin: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 10px;
+    font-size: 15px;
+}
+
+	</style>
+</head>
+<body>
+<h1>Working with Cards</h1>
+
+<div>
+
+
+
+<!-- <div id="idMainLeft" class="main"> -->
+<!-- <div id="idMainLeft"> -->
+
+<!-- The left side actively creates cards and deletes them -->
+	<div id="idLeft" class="main">
+	<button id="idAdd">Add Card</button>
+	</div>
+
+<!-- </div> -->
+
+
+<!-- <div id="idMainRight" class="main"> -->
+<!-- The right side doesnt change and constrains the left side -->
+	<div id="idRight" class="main" ><h1>Right Side</h1>
+	</div>
+<!-- </div> -->
+
+
+<script>
+
+document.addEventListener('click', clickAdd); //listen for click
+let nextCardNumber = 1;
+
+function clickAdd(event){ 
+	//console.log("imhere");
+	//console.log(event.target); //add new card
+	var div = document.querySelector('div');
+	var newCard = document.createElement('div');
+	newCard.textContent = "this may work";
+	div.appendChild(newCard);
+	// newCard.className = "clCard";
+	// newCard.textContent = "Why don't you work Card " + nextCardNumber++;
+	// console.log("newCard = ", newCard);
+	// document.getElementById("idLeft").appendChild(newCard);
+//	newCard.classList.add("clCard");
+	// let node = document.getElementById("idLeft").parentElement;
+	// node.appendChild(newCard);
+	//return(newCard) ;
+};
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

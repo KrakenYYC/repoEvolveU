@@ -4,7 +4,32 @@
 	<title></title>
 <style>
 
-.clMain {   /*main container for both right and left panels*/
+
+/*#main {
+  width: 300px;
+  height: 500px;
+  border: 1px solid #c3c3c3;
+  display: -webkit-flex; /* Safari */
+ /* -webkit-flex-direction: row-reverse;  Safari 6.1+ 
+  display: flex;
+  flex-direction: row-reverse;
+};
+
+#main div {
+  width: 300px;
+  height: 500px;
+};
+
+.card {
+	width: 30px;
+	height: 50px;
+};*/
+
+
+
+
+
+.main {   /*main container*/
 	background: linen;
 	float: left;
 	border: 2px solid #4CAF50;
@@ -17,9 +42,24 @@
     font-size: 15px;*/
 };
 
-.clCard{  /*new card*/
+.clSide{/* left side class inside container div*/
 	float: left;
 	text-align: center;
+	width: 300px;
+
+
+	border: black;
+	background-color: green;
+	width: 50px;
+	height: 40px;
+	margin: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 10px;
+    font-size: 15px;
+};
+
+.clCard {/* class name of new div */
 	border: black;
 	background-color: green;
 	width: 50px;
@@ -35,162 +75,47 @@
 </head>
 <body>
 <h1>Working with Cards</h1>
-<div>
+
 <div>
 
+
+
+<!-- <div id="idMainLeft" class="main"> -->
+<!-- <div id="idMainLeft"> -->
 
 <!-- The left side actively creates cards and deletes them -->
-<div id="idLeft" class="clMain">
+	<div id="idLeft" class="main">
 	<button id="idAdd">Add Card</button>
-</div>
+	</div>
+
+<!-- </div> -->
 
 
-</div>
-
-
-
+<!-- <div id="idMainRight" class="main"> -->
 <!-- The right side doesnt change and constrains the left side -->
-<div>
-<div id="idRight" class="clMain" >
-	<h1>Right Side</h1>
-</div>
-</div>
+	<div id="idRight" class="main" ><h1>Right Side</h1>
+	</div>
+<!-- </div> -->
 
-</div>
+
 <script>
 
+document.addEventListener('click', clickAdd); //listen for click
 let nextCardNumber = 1;
 
-document.addEventListener("click",onButtonClick) ;
-
-function onButtonClick(){
-	console.log(event.target.id);
-	const targetID = event.target.id ;
-	if (targetID === "addCardButton" ){
-		
-		idLeft = event.target.parentNode;
-		newCard = createCard() ;
-		idLeft.insertBefore(newCard,null);
-	
-	} else if (targetID === "deleteButton") {
-
-		clickedCard = event.target.parentNode;
-		console.log(clickedCard);
-		idLeft = clickedCard.parentNode ;
-		idLeft.removeChild(clickedCard) ;
-
-	} else if ( targetID === "beforeButton") {
-		
-		clickedCard = event.target.parentNode ;
-		idLeft = clickedCard.parentNode ;
-		newCard = createCard() ;
-		idLeft.insertBefore(newCard,clickedCard) ;
-
-	} else if ( targetID === "afterButton") {
-
-		clickedCard = event.target.parentNode ;
-		idLeft = clickedCard.parentNode ;
-		newCard = createCard() ;
-		nextSibling = clickedCard.nextSibling ;
-		idLeft.insertBefore(newCard,nextSibling) ;
-
-	}
-}
-
-function createCard() {
-
+function clickAdd(event){ 
+	//console.log("imhere");
+	//console.log(event.target); //add new card
 	const newCard = document.createElement("div");
 	newCard.className = "clCard";
-	const cardTitle = "My Little Card " + nextCardNumber;
-	const newCardText = document.createTextNode(cardTitle);
-
-	const breakOne = document.createElement("br") ;
-	
-	const newBeforeButton = document.createElement("button") ;
-	newBeforeButton.setAttribute("id","beforeButton") ;
-	const newBeforeButtonText = document.createTextNode("Add Before") ;
-	newBeforeButton.appendChild(newBeforeButtonText) ;
-
-	const newCardSpace1 = document.createTextNode(" ") ;
-
-	const newAfterButton = document.createElement("button") ;
-	newAfterButton.setAttribute("id","afterButton") ;
-	const newAfterButtonText = document.createTextNode("Add After") ;
-	newAfterButton.appendChild(newAfterButtonText) ;
-
-	const breakTwo = document.createElement("br") ;
-
-	const newDeleteButton = document.createElement("button") ;
-	newDeleteButton.setAttribute("id","deleteButton") ;
-	const newDeleteButtonText = document.createTextNode("Delete") ;
-	newDeleteButton.appendChild(newDeleteButtonText) ;
-
-	newCard.appendChild(newCardText);
-	newCard.appendChild(breakOne) ;
-	newCard.appendChild(newBeforeButton);
-	newCard.appendChild(newCardSpace1);
-	newCard.appendChild(newAfterButton);
-	newCard.appendChild(breakTwo) ;
-	newCard.appendChild(newDeleteButton);
-
-	nextCardNumber = nextCardNumber + 1;
-	return(newCard) ;
-}
-
-
-// let counter = 0;
-
-// const addCardButton = document.getElementById("idAddCard");
-// const leftPanel = document.getElementById("idLeft");
-
-
-// idAdd.addEventListener("click", onAddCardClicked);
-
-
-// function onAddCardClicked(event) {
-// 	console.log("Inside onAddCardClicked");
-// 	leftPanel.appendChild(makeDiv());
-// };
-
-// function makeDiv() {
-// 	const div = document.createElement("div");
-// 	div.textContent = "Card " + counter++;
-// 	const addBeforeBtn = document.createElement("button");
-// 	//addBeforeBtn.className = "clButton";
-// 	addBeforeBtn.textContent = "Add Before";
-// 	const addAfterBtn = document.createElement("button");
-// 	addAfterBtn.textContent = "Add After";
-// 	const delBtn = document.createElement("button");
-// 	delBtn.textContent = "Delete";
-// 	delBtn.addEventListener("click", onDeleteCard);
-// 	div.appendChild(document.createElement("br"));
-// 	div.appendChild(addBeforeBtn);
-// 	div.appendChild(addAfterBtn);
-// 	div.appendChild(document.createElement("br"));
-// 	div.appendChild(delBtn);
-// 	div.className = "clCard";
-// 	// console.log(div);
-// 	// console.log(delBtn);
-// 	return div;
-// }
-
-
-// document.addEventListener('click', clickAdd); //listen for click
-// let nextCardNumber = 1;
-
-// function clickAdd(event){ 
-// 	//console.log("imhere");
-// 	//console.log(event.target); //add new card
-// 	const newCard = document.createElement("div");
-// 	newCard.className = "clCard";
-// 	newCard.textContent = "Cardv1" + nextCardNumber++;
-// 	console.log("newCard = ", newCard);
-// 	document.getElementById("idLeft").appendChild(newCard);
-// //	newCard.classList.add("clCard");
-// 	// let node = document.getElementById("idLeft").parentElement;
-// 	// node.appendChild(newCard);
-// 	//return(newCard) ;
-// };
+	newCard.textContent = "Cardv1" + nextCardNumber++;
+	console.log("newCard = ", newCard);
+	document.getElementById("idLeft").appendChild(newCard);
+//	newCard.classList.add("clCard");
+	// let node = document.getElementById("idLeft").parentElement;
+	// node.appendChild(newCard);
+	//return(newCard) ;
+};
 
 
 
