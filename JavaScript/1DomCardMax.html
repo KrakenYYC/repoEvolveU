@@ -86,6 +86,8 @@ semi-colons at the end of the curly brackets will negate all other css*/
 <body>
 <h1>Working with Cards</h1>
 
+
+
 <div>
 <!-- The left side actively creates cards and deletes them -->
 	<div id="idLeft" class="main">
@@ -100,6 +102,7 @@ semi-colons at the end of the curly brackets will negate all other css*/
 
 <script>
 
+	
 //add event listener to the Add Card button that invokes onAddMainCard
 document.addEventListener('click', onAddMainCard);
 //invokes the function clickAdd based on the event listener above
@@ -108,8 +111,8 @@ function onAddMainCard(event) {
 		mom = event.target.parentNode; //identify the parent
 		mom.appendChild(clickAdd()); // append the return of the function
 	} else if (event.target.id === "idBefore") { //this button pressed
-		whereAmIBefore = event.target.parentNode;  //where are we
-		dad = whereAmIBefore.parentNode; // who is the parent
+		whereAmIBefore = event.target.parentNode;  //identifies parent
+		dad = whereAmIBefore.parentNode; //parent of parent
 		newCard = clickAdd(); //creates a new card
 		newCard.className = "clCardBefore"; //new class to identify
 		dad.insertBefore(newCard,whereAmIBefore); //where dad says to go
@@ -132,7 +135,7 @@ function onAddMainCard(event) {
 
 let nextCardNumber = 1;
 
-function clickAdd(event){ 
+function clickAdd(){ //could be event maybe not
 	console.log("I\'m here in the clickAdd function");
 
 //creates new div called newCard which includes the buttons
