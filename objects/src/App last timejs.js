@@ -29,8 +29,8 @@ class App extends Component {
     };
 
     this.whichOne = "React"; //this is not in state
-    // this.result = result; //may need to be removed
-
+    // this.number1 = a;
+    // this.number2 = b;
     //this closes the constructor
   }
 
@@ -58,6 +58,7 @@ class App extends Component {
         <div className="App-Top">
           <h1> What a Wonderful World!, {this.whichOne} </h1>{" "}
         </div>
+
         <div className="App-Main">
           <button id="React" type="button" onClick={this.handleClick}>
             React{" "}
@@ -98,6 +99,7 @@ class App extends Component {
             onClick={this.handleClick}
           />
         </div>
+
         <div className="App-header">
           {(() => {
             switch (this.whichOne) {

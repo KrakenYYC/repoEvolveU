@@ -4,9 +4,8 @@
 
 .App-mathComp {
   height: 120px;
-  padding: 50px;
-  margin: auto;
-  width: 30%;
+  padding: 60px;
+  width: 40%;
   border: blue;
   -webkit-box-shadow: 20px 14px 5px 0px rgba(40, 9, 125, 0.75);
   -moz-box-shadow: 20px 14px 5px 0px rgba(231, 126, 0, 0.75);
@@ -49,7 +48,10 @@
   pointer-events: auto;
   padding: 8vmin;
 }
-
+.button {
+  height: 200vmin;
+  width: 10vmin;
+}
 .App-header {
   height: 50vh;
   display: flex;
@@ -61,10 +63,8 @@
   background-color: rgb(46, 20, 119);
 }
 
- {
-}
 .App-link {
-  color: #42072c;
+  color: #184912;
 }
 
 @keyframes App-logo-spin {

@@ -1,38 +1,49 @@
 import React, { Component } from "react";
-import zmath from "../Functions/zmath";
+import Zmath from "./Zmath";
 
 class MathComponent extends Component {
   constructor() {
     super();
 
     this.state = {
-      add: false,
-      sub: false,
-      mul: false,
-      div: false,
-      mod: false
+      result: ""
     };
 
-    this.number1 = "0";
-    this.number2 = "0";
-    this.result = "Result";
+    this.findValue = this.findValue.bind(this);
   }
+  onChange1(e) {
+    console.log("onChange1", parseInt(e.target.value));
+  }
+  onChange2(e) {
+    console.log("onChange2", parseInt(e.target.value));
+  }
+  findValue(e) {
+    console.log("imhere", e.target.value);
 
-  findValue = e => {
-    console.log("imhere", e.target);
-    this.setState({
-      add: !this.state.add,
-      sub: !this.state.sub,
-      mul: !this.state.mul,
-      div: !this.state.div,
-      mod: !this.state.mod
-    });
-    this.result = e.target.value;
-  };
+    let a = Number(document.getElementById("number1").value);
+    let b = Number(document.getElementById("number2").value);
 
+    if (e.target.id === "idAdd") {
+      this.setState({
+        result: Zmath.Sum(a, b)
+      });
+    } else if (e.target.id === "idSub") {
+      this.setState({
+        result: Zmath.Sub(a, b)
+      });
+    } else if (e.target.id === "idMul") {
+      this.setState({
+        result: Zmath.Mul(a, b)
+      });
+    } else if (e.target.id === "idDiv") {
+      this.setState({
+        result: Zmath.Div(a, b)
+      });
+    } else {
+      this.setState({ result: null });
+    }
+  }
   render() {
-    // console.log("im2and3", zmath.sum(2, 3));
-    // console.log("im12and3", zmath.div(12, 3));
     return (
       <div
         style={{
@@ -42,30 +53,44 @@ class MathComponent extends Component {
         className="App-mathComp"
       >
         <form>
+          Simple Calculator
           <div>
-            <input id="a" type="text" placeholder="Number 1" />
-
-            <input id="b" type="text" placeholder="Number 2" />
+            <input
+              id="number1"
+              type="text"
+              placeholder="First number here"
+              onChange={this.onChange1}
+            />
           </div>
           <div>
-            <input id="c" type="text" placeholder="Result" />
+            <input
+              id="number2"
+              type="text"
+              placeholder="Second number here"
+              onChange={this.onChange2}
+            />
           </div>
-          {this.result.value}
           <div>
-            <button id="Add" type="button" onClick={this.findValue}>
+            <input
+              id="result"
+              type="text"
+              name="result"
+              placeholder="Result"
+              value={this.state.result}
+            />
+          </div>
+          <div>
+            <button id="idAdd" type="button" onClick={this.findValue}>
               Add
             </button>
-            <button id="Sub" type="button" onClick={this.findValue}>
+            <button id="idSub" type="button" onClick={this.findValue}>
               Sub
             </button>
-            <button id="Mul" type="button" onClick={this.findValue}>
+            <button id="idMul" type="button" onClick={this.findValue}>
               Mul
             </button>
-            <button id="Div" type="button" onClick={this.findValue}>
+            <button id="idDiv" type="button" onClick={this.findValue}>
               Div
-            </button>
-            <button id="Mod" type="button" onClick={this.findValue}>
-              Mod
             </button>
           </div>
         </form>

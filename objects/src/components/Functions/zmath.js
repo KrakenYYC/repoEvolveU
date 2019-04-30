@@ -1,23 +1,19 @@
 import React from "react";
 
-function sum(a, b) {
+function Sum(a, b) {
   return a + b;
 }
 
-function sub(a, b) {
+function Sub(a, b) {
   return a - b;
 }
 
-function mul(a, b) {
+function Mul(a, b) {
   return a * b;
 }
 
-function div(a, b) {
+function Div(a, b) {
   return a / b;
 }
 
-function mod(a, b) {
-  return a % b;
-}
-
-export default { sum, sub, mul, div, mod };
+export default { Sum, Sub, Mul, Div };
