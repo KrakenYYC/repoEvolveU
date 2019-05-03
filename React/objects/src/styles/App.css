@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+}
+
+#h1 {
+  text-align: center;
+}
+.App-mathComp {
+  color: white;
+  margin: auto;
+  width: 45%;
+  height: 80%;
+  padding: 20px;
+  align-content: center;
+  -webkit-box-shadow: 20px 14px 5px 0px rgba(40, 9, 125, 0.75);
+  -moz-box-shadow: 20px 14px 5px 0px rgba(231, 126, 0, 0.75);
+  box-shadow: 20px 14px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgb(46, 20, 119);
+}
+
+.App-acctComp {
+  color: white;
+  margin: auto;
+  width: 45%;
+  height: 80%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-left: 90px;
+  -webkit-box-shadow: 20px 14px 5px 0px rgba(40, 9, 125, 0.75);
+  -moz-box-shadow: 20px 14px 5px 0px rgba(231, 126, 0, 0.75);
+  box-shadow: 20px 14px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgb(46, 20, 119);
+}
+.App-logo-img {
+  animation: App-logo-spin infinite 5s linear;
+  height: 10vmin;
+  pointer-events: auto;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.App-math-img {
+  animation: App-logo-spin infinite 20s linear;
+  height: 8vmin;
+  pointer-events: auto;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+.App-acct-img {
+  animation: App-logo-spin infinite 20s linear;
+  height: 8vmin;
+  pointer-events: auto;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+.App-instagram-img {
+  animation: App-logo-spin infinite 20s linear;
+  height: 8vmin;
+  pointer-events: auto;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+.App-twitter-img {
+  animation: App-logo-spin infinite 20s linear;
+  height: 8vmin;
+  pointer-events: auto;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+.App-youtube-img {
+  animation: App-logo-spin infinite 20s linear;
+  height: 8vmin;
+  pointer-events: auto;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.App-top {
+  /* background: #5a0a3f; */
+  /* border: solid 2px black; */
+  padding: 0px;
+  max-height: 40px;
+}
+.App-main {
+  background: #184912;
+  padding: 0px;
+  max-height: 10%;
+}
+.App-defaultbody {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  background-color: rgb(46, 20, 119);
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 5s linear;
+  height: 40vmin;
+  pointer-events: auto;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+/* .App-img {
+  border: solid 2px #5a0a3f;
+} */
+.App-link {
+  color: #b7f01a;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
