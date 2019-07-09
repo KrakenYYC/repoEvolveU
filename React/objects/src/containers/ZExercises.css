@@ -1,0 +1,85 @@
+.AccountsControllerSection {
+    display: flex;
+    width: 100%;
+}
+
+.AccountsListSection {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.AccountsControllerBox {
+    border: solid;
+    text-align: left;
+    margin: 5px;
+    flex: 50%;
+}
+
+.AccountsListBox {
+    border: solid;
+    text-align: left;
+    margin: 5px;
+}
+
+.AccountValue {
+    background-color: #282c34;
+    border: none;
+    size: 10;
+    color: yellowgreen;
+    padding: 5px 5px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(2vmin);;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.AccountField {
+    background-color: #282c34;
+    border: solid;
+    size: 10;
+    color: white;
+    padding: 5px 5px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(2vmin);;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.AccountLabel {
+    background-color: #282c34;
+    border: none;
+    size: 10;
+    color: white;
+    padding: 5px 5px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(2vmin);;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.AccountButton {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: calc(2vmin);;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.AccountButtonP {
+    text-align: center;
+}
