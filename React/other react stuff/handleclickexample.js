@@ -32,3 +32,27 @@ export default class DoubleClick extends React.Component {
     );
   }
 }
+
+//this will return undefined as the value of this
+class Foo extends React.Component{
+  constructor( props ){
+    super( props );
+
+    //inside here is where we bind the function
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick(event){
+    console.log(this); // 'this' is undefined
+  }
+  render(){
+    return (
+      <button type="button" onClick={this.handleClick}>
+        Click Me
+      </button>
+    );
+  }
+}
+ReactDOM.render(
+  <Foo />,
+  document.getElementById("app")
+);

@@ -4,7 +4,7 @@ import logo from "../images/logo.svg";
 function IconComponent() {
   return (
     <div className="App-defaultbody">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo-lg" alt="logo" />
       <p>
         Edit <code> src / App.js </code> and save to reload.
       </p>

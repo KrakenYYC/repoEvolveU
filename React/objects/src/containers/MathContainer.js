@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Zmath from "../components/Zmath";
+import MathFunctions from "../components/MathFunctions";
 
 class MathContainer extends Component {
   constructor() {
@@ -25,19 +25,19 @@ class MathContainer extends Component {
 
     if (e.target.id === "idAdd") {
       this.setState({
-        result: Zmath.Sum(a, b)
+        result: MathFunctions.Sum(a, b)
       });
     } else if (e.target.id === "idSub") {
       this.setState({
-        result: Zmath.Sub(a, b)
+        result: MathFunctions.Sub(a, b)
       });
     } else if (e.target.id === "idMul") {
       this.setState({
-        result: Zmath.Mul(a, b)
+        result: MathFunctions.Mul(a, b)
       });
     } else if (e.target.id === "idDiv") {
       this.setState({
-        result: Zmath.Div(a, b)
+        result: MathFunctions.Div(a, b)
       });
     } else {
       this.setState({ result: null });
@@ -52,7 +52,7 @@ class MathContainer extends Component {
         className="App-mathComp"
       >
         <form>
-          <h1> Simple Calculator</h1>
+          <h3> Simple Calculator</h3>
           <div>
             <input
               id="number1"

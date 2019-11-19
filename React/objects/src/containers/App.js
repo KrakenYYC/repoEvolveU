@@ -1,24 +1,28 @@
 import React, { Component } from "react";
 
 // icons
-import logo from "../images/logo.svg";
-import math from "../images/calc.svg";
-import account from "../images/account.svg";
-import twitter from "../images/twitter.svg";
-import linkedin from "../images/linkedin.svg";
-import instagram from "../images/instagram.svg";
+import react from "../images/react.svg";
+import math from "../images/math.svg";
+import acct from "../images/acct.svg";
+import mcct from "../images/mcct.svg";
+import city from "../images/city.svg";
 
 // mini component functions per icon which will change to something interesting
+import IconContainer from "./IconContainer";
 import MathContainer from "./MathContainer";
-import AcctContainer from "./AcctContainer";
-import TwitterComponent from "../components/TwitterComponent";
-import LinkedinComponent from "../components/LinkedinComponent";
-import YoutubeComponent from "../components/YoutubeComponent";
-import IconComponent from "../components/IconComponent";
+import AcctSingle from "./AcctSingle";
+import AcctController from "./AcctController";
+import AppForFun from "./AppForFun";
+import ZExercises from "./ZExercises";
+import AcctMultiple from "./AcctMultiple";
+
+import Buttons from "./Buttons";
+
 // import Test from "./components/Functions/Test";
 
 // css for App
 import "../styles/App.css";
+import AccountPOJO from "../components/AccountPOJO";
 
 class App extends Component {
   constructor() {
@@ -47,12 +51,8 @@ class App extends Component {
   };
 
   render() {
-    //just a side task assigning a variable name to the functions
-    const element1 = <MathContainer name="Math" />;
-    const element2 = <AcctContainer name="Account" />;
-    const element3 = <LinkedinComponent name="Linkedin" />;
-    const element4 = <TwitterComponent name="Twitter" />;
-    const element5 = <YoutubeComponent name="Youtube" />;
+    const myAccount = new AccountPOJO("Checking", 25);
+    const myAccounts = new AccountPOJO("", 0);
 
     return (
       <div className="App">
@@ -60,48 +60,67 @@ class App extends Component {
           <h1> What a Wonderful World!, {this.whichOne}</h1>
         </div>
 
-        <div className="App-img">
+        <div className="App-Main">
           <img
-            src={logo}
-            className="App-logo-img"
-            alt="r"
-            title="Logo"
+            src={react}
+            className="App-img"
+            alt="l"
+            title="React"
             onClick={this.handleClick}
           />
 
           <img
             src={math}
-            className="App-math-img"
+            className="App-img"
             alt="m"
             title="Math"
             onClick={this.handleClick}
           />
+
           <img
-            src={account}
-            className="App-acct-img"
+            src={acct}
+            className="App-img"
             alt="l"
-            title="Account"
+            title="Acct"
             onClick={this.handleClick}
           />
+
           <img
-            src={linkedin}
-            className="App-instagram-img"
+            src={mcct}
+            className="App-img"
             alt="i"
-            title="LinkedIn"
+            title="Mcct"
+            onClick={this.handleClick}
+          />
+
+          <img
+            src={city}
+            className="App-img"
+            alt="i"
+            title="City"
             onClick={this.handleClick}
           />
           <img
-            src={twitter}
-            className="App-twitter-img"
-            alt="t"
-            title="Twitter"
+            src={react}
+            className="App-img"
+            alt="p"
+            title="Open"
             onClick={this.handleClick}
           />
+
           <img
-            src={twitter}
-            className="App-twitter-img"
-            alt="y"
-            title="YouTube"
+            src={react}
+            className="App-img"
+            alt="p"
+            title="MinMax"
+            onClick={this.handleClick}
+          />
+
+          <img
+            src={react}
+            className="App-img"
+            alt="p"
+            title="table"
             onClick={this.handleClick}
           />
         </div>
@@ -111,16 +130,31 @@ class App extends Component {
             switch (this.whichOne) {
               case "Math":
                 return <MathContainer />;
-              case "Account":
-                return <AcctContainer />;
-              case "LinkedIn":
-                return <LinkedinComponent />;
-              case "Twitter":
-                return <TwitterComponent />;
-              case "YouTube":
-                return <YoutubeComponent />;
+              case "Acct":
+                return (
+                  <AcctSingle
+                    account={myAccount}
+                    // showName="Checking"
+                    // showBalance="0"
+                    onClose={() => {}}
+                    id={0}
+                  />
+                );
+
+              case "Mcct":
+                return <AcctController />;
+
+              // case "City":
+              //   return <ZExercises />;
+
+              case "Open":
+                return <AcctMultiple accounts={myAccounts} />;
+
+              case "MinMax":
+                return <AppForFun />;
+
               default:
-                return <IconComponent />;
+                return <IconContainer />;
             }
           })()}
         </div>
