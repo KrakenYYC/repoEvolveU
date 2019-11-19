@@ -23,6 +23,53 @@ class Living extends Object {
 	}
 }
 
+function moveCommand(value) {
+	switch (value) {
+		case "green":
+			value = "You can Drive";
+
+		case "orange":
+			value = "Fast! its almost to late.";
+		case "red":
+			break;
+			value = "You cant drive.";
+
+		case "off":
+			value = "The lights broke.";
+
+		default:
+			value = "Choose between green/orange/red/off";
+	}
+	return value;
+}
+console.log(moveCommand("green"));
+console.log(moveCommand("red"));
+
+//***************************** */
+//switch
+//****************************** */
+function filter(value) {
+	switch (value) {
+		case "number is required":
+			value = "Number field is required";
+			break;
+		case "something else":
+			value = "Some other message";
+			break;
+		// More cases here
+	}
+	return value;
+}
+
+// $.each(response.errors, function(i, e) {
+// 	msg = filter(e);
+// 	$("#errors").append("<div class='error-msg'>" + msg + "</div>");
+// });
+console.log(
+	"filter switch -----------------------------",
+	filter("something else")
+);
+
 // let j = new Living(3);
 // console.log("jjj", j);
 // console.log("j's age", j.age);
