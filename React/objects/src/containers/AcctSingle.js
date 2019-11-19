@@ -24,7 +24,11 @@ class AcctSingle extends Component {
   onUpdateAccount(e) {
     let amount = Number(document.getElementById("amount").value);
     let name = document.getElementById("accName").value;
+<<<<<<< HEAD
     let id = this.state.accList;
+=======
+    //let id = this.state.accList;
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
 
     if (e.target.id === "idDeposit") {
       this.account.onDeposit(amount);
@@ -98,7 +102,11 @@ class AcctSingle extends Component {
         }}
         className="App-acctComp"
       >
+<<<<<<< HEAD
         <div className="Single">
+=======
+        <div>
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
           <div id="accName">Name: {this.account.showName()}</div>
           {/* original {this.account.showName()} */}
           <div>Balance: {this.account.showBalance()}</div>
@@ -109,7 +117,10 @@ class AcctSingle extends Component {
             <input
               id="amount"
               type="text"
+<<<<<<< HEAD
               size="30"
+=======
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               placeholder="Enter dollar amount"
               ref={this.myRef}
             />
@@ -133,9 +144,15 @@ class AcctSingle extends Component {
               Rename
             </button>
 
+<<<<<<< HEAD
             <button id="idClose" type="button" onClick={this.onUpdateAccount}>
               Close
             </button>
+=======
+            {/* <button id="idClose" type="button" onClick={this.onUpdateAccount}>
+              Close
+            </button> */}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
           </div>
         </div>
       </div>

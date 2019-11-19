@@ -6,17 +6,29 @@ import math from "../images/math.svg";
 import acct from "../images/acct.svg";
 import mcct from "../images/mcct.svg";
 import city from "../images/city.svg";
+<<<<<<< HEAD
+=======
+import nowo from "../images/nowo.svg";
+import owl from "../images/owl.svg";
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
 
 // mini component functions per icon which will change to something interesting
 import IconContainer from "./IconContainer";
 import MathContainer from "./MathContainer";
 import AcctSingle from "./AcctSingle";
 import AcctController from "./AcctController";
+<<<<<<< HEAD
 import AppForFun from "./AppForFun";
 import ZExercises from "./ZExercises";
 import AcctMultiple from "./AcctMultiple";
 
 import Buttons from "./Buttons";
+=======
+import TableGreat from "./TableGreat";
+import CityController from "./CityController";
+
+import AcctMultiple from "./AcctMultiple";
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
 
 // import Test from "./components/Functions/Test";
 
@@ -51,8 +63,13 @@ class App extends Component {
   };
 
   render() {
+<<<<<<< HEAD
     const myAccount = new AccountPOJO("Checking", 25);
     const myAccounts = new AccountPOJO("", 0);
+=======
+    const myAccount = new AccountPOJO("Checking", 0);
+    //const myAccounts = new AccountPOJO("", 0);
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
 
     return (
       <div className="App">
@@ -94,13 +111,28 @@ class App extends Component {
           />
 
           <img
+<<<<<<< HEAD
             src={city}
             className="App-img"
             alt="i"
+=======
+            src={mcct}
+            className="App-img"
+            alt="i"
+            title="Multiple Accounts"
+            onClick={this.handleClick}
+          />
+
+          <img
+            src={city}
+            className="App-img"
+            alt="j"
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
             title="City"
             onClick={this.handleClick}
           />
           <img
+<<<<<<< HEAD
             src={react}
             className="App-img"
             alt="p"
@@ -121,6 +153,20 @@ class App extends Component {
             className="App-img"
             alt="p"
             title="table"
+=======
+            src={nowo}
+            className="App-img"
+            alt="p"
+            title="Open for Business"
+            onClick={this.handleClick}
+          />
+
+          <img
+            src={owl}
+            className="App-img"
+            alt="p"
+            title="Creative Lessons"
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
             onClick={this.handleClick}
           />
         </div>
@@ -130,17 +176,27 @@ class App extends Component {
             switch (this.whichOne) {
               case "Math":
                 return <MathContainer />;
+<<<<<<< HEAD
               case "Acct":
                 return (
                   <AcctSingle
                     account={myAccount}
                     // showName="Checking"
+=======
+
+              case "Account":
+                return (
+                  <AcctSingle
+                    account={myAccount}
+                    // showNaem="Checking"
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
                     // showBalance="0"
                     onClose={() => {}}
                     id={0}
                   />
                 );
 
+<<<<<<< HEAD
               case "Mcct":
                 return <AcctController />;
 
@@ -152,6 +208,19 @@ class App extends Component {
 
               case "MinMax":
                 return <AppForFun />;
+=======
+              case "Multiple Accounts":
+                return <AcctController account={myAccount} />;
+
+              case "City":
+                return <CityController />;
+
+              case "Nowo":
+                return <AcctMultiple />;
+
+              case "owl":
+                return <IconContainer />;
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
 
               default:
                 return <IconContainer />;

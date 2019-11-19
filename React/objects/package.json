@@ -3,8 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap": "^4.3.1",
+=======
+    "@material-ui/core": "^4.1.1",
+    "bootstrap": "^4.3.1",
+    "material-ui": "^0.20.2",
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
     "react": "^16.8.6",
+    "react-data-grid": "^6.1.0",
     "react-dom": "^16.8.6",
     "react-icons": "^3.5.0",
     "react-scripts": "2.1.8"

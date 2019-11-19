@@ -54,6 +54,7 @@ class AccountsController extends React.Component {
         <div className="AccountsControllerBox">
           <h4>Accounts Overview:</h4>
           <p>
+<<<<<<< HEAD
             <span className="AccountLabel">Maximfffffffum:</span>
             <span className="AccountValue">{maxBalanceAccount}</span>
           </p>
@@ -64,13 +65,31 @@ class AccountsController extends React.Component {
           <p>
             <span className="AccountLabel">Total:</span>
             <span className="AccountValue">{totalBalance}</span>
+=======
+            <span className="lab">Maximum:</span>
+            <span className="valA">{maxBalanceAccount}</span>
+          </p>
+          <p>
+            <span className="lab">Minimum:</span>
+            <span className="valA">{minBalanceAccount}</span>
+          </p>
+          <p>
+            <span className="lab">Total:</span>
+            <span className="valA">{totalBalance}</span>
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
           </p>
         </div>
 
         <div className="AccountsControllerBox">
+<<<<<<< HEAD
           <h4>Open New Account:</h4>
           <p>
             <span className="AccountLabel">Name:</span>
+=======
+          <h4>O pen New Account:</h4>
+          <p>
+            <span className="lab">Name:</span>
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
             <span>
               <input
                 type="text"
@@ -87,7 +106,11 @@ class AccountsController extends React.Component {
           </p>
 
           <p>
+<<<<<<< HEAD
             <span className="AccountLabel">Balance:</span>
+=======
+            <span className="lab">Balance:</span>
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
             <span>
               <input
                 type="text"
@@ -109,6 +132,7 @@ class AccountsController extends React.Component {
               className="AccountButton"
               onClick={() => {
                 if (this.state.newAccountName.length > 0) {
+<<<<<<< HEAD
                   const accountIndex = this.state.newAccountName;
                   const adjustmentValue = this.state.newAccountBalance;
                   const adjustmentType = "open";
@@ -117,6 +141,12 @@ class AccountsController extends React.Component {
                     adjustmentType,
                     adjustmentValue
                   );
+=======
+                  const cat = this.state.newAccountName;
+                  const pig = this.state.newAccountBalance;
+                  const dog = "open";
+                  this.props.onAdjust(cat, dog, pig);
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
                 } else {
                   this.newAccountName.focus();
                 }
@@ -154,6 +184,7 @@ class Account extends React.Component {
     return (
       <div className="AccountsListBox">
         <p>
+<<<<<<< HEAD
           <span className="AccountLabel">Account:</span>
           <span className="AccountValue">{this.props.account.name}</span>
         </p>
@@ -163,6 +194,17 @@ class Account extends React.Component {
         </p>
         <p className="AccountButtonP">
           <span className="AccountLabel">Adjust:</span>
+=======
+          <span className="lab">Account:</span>
+          <span className="valA">{this.props.account.name}</span>
+        </p>
+        <p>
+          <span className="lab">Balance:</span>
+          <span className="george">{this.props.account.balance}</span>
+        </p>
+        <p className="AccountButtonP">
+          <span className="lab">Adjust:</span>
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
           <span>
             <input type="text" className="AccountField" ref={this.myRef} />
           </span>
@@ -171,6 +213,7 @@ class Account extends React.Component {
           <button
             className="AccountButton"
             onClick={() => {
+<<<<<<< HEAD
               const adjustmentValue = this.myRef.current.value;
               if (adjustmentValue !== "") {
                 const accountIndex = this.props.index;
@@ -181,6 +224,14 @@ class Account extends React.Component {
                   adjustmentType,
                   adjustmentValue
                 );
+=======
+              const pig = this.myRef.current.value;
+              if (pig !== "") {
+                const cat = this.props.index;
+                const dog = "rename";
+                this.myRef.current.value = "";
+                this.props.onAdjust(cat, dog, pig);
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               }
             }}
           >
@@ -189,6 +240,7 @@ class Account extends React.Component {
           <button
             className="AccountButton"
             onClick={() => {
+<<<<<<< HEAD
               const adjustmentValue = Number(this.myRef.current.value);
               if (!isNaN(adjustmentValue)) {
                 const accountIndex = this.props.index;
@@ -199,6 +251,14 @@ class Account extends React.Component {
                   adjustmentType,
                   adjustmentValue
                 );
+=======
+              const pig = Number(this.myRef.current.value);
+              if (!isNaN(pig)) {
+                const cat = this.props.index;
+                const dog = "deposit";
+                this.myRef.current.value = "";
+                this.props.onAdjust(cat, dog, pig);
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               }
             }}
           >
@@ -208,6 +268,7 @@ class Account extends React.Component {
           <button
             className="AccountButton"
             onClick={() => {
+<<<<<<< HEAD
               const adjustmentValue = Number(this.myRef.current.value);
               if (
                 !isNaN(adjustmentValue) &&
@@ -221,6 +282,14 @@ class Account extends React.Component {
                   adjustmentType,
                   adjustmentValue
                 );
+=======
+              const pig = Number(this.myRef.current.value);
+              if (!isNaN(pig) && pig <= this.props.account.balance) {
+                const cat = this.props.index;
+                const dog = "withdraw";
+                this.myRef.current.value = "";
+                this.props.onAdjust(cat, dog, pig);
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               }
             }}
           >
@@ -229,6 +298,7 @@ class Account extends React.Component {
           <button
             className="AccountButton"
             onClick={() => {
+<<<<<<< HEAD
               const adjustmentValue = this.myRef.current.value;
               const accountIndex = this.props.index;
               const adjustmentType = "close";
@@ -238,6 +308,13 @@ class Account extends React.Component {
                 adjustmentType,
                 adjustmentValue
               );
+=======
+              const pig = this.myRef.current.value;
+              const cat = this.props.index;
+              const dog = "close";
+              this.myRef.current.value = "";
+              this.props.onAdjust(cat, dog, pig);
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
             }}
           >
             Close
@@ -271,6 +348,7 @@ class Accounts extends React.Component {
     };
   }
 
+<<<<<<< HEAD
   adjustAccount = (accountIndex, adjustmentType, adjustmentValue) => {
     const savedState = this.state;
     if (adjustmentType === "open") {
@@ -284,6 +362,21 @@ class Accounts extends React.Component {
       savedState.accounts[accountIndex].balance += adjustmentValue;
     } else if (adjustmentType === "withdraw") {
       savedState.accounts[accountIndex].balance -= adjustmentValue;
+=======
+  onAdjust = (cat, dog, pig) => {
+    const savedState = this.state;
+    if (dog === "open") {
+      const newAccount = { name: cat, balance: pig };
+      savedState.accounts.push(newAccount);
+    } else if (dog === "rename") {
+      savedState.accounts[cat].name = pig;
+    } else if (dog === "close") {
+      savedState.accounts.splice(cat, 1);
+    } else if (dog === "deposit") {
+      savedState.accounts[cat].balance += pig;
+    } else if (dog === "wi onAdjustthdraw") {
+      savedState.accounts[cat].balance -= pig;
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
     }
 
     this.setState(savedState);
@@ -296,7 +389,11 @@ class Accounts extends React.Component {
           Module 140 - Accounts
           <AccountsController
             currentState={this.state}
+<<<<<<< HEAD
             adjustAccount={this.adjustAccount}
+=======
+            onAdjust={this.onAdjust}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
           />
           <div className="AccountsListSection">
             {this.state.accounts.map((account, index) => (
@@ -305,7 +402,11 @@ class Accounts extends React.Component {
                   account={account}
                   key={index}
                   index={index}
+<<<<<<< HEAD
                   adjustAccount={this.adjustAccount}
+=======
+                  onAdjust={this.onAdjust}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
                 />
               </div>
             ))}

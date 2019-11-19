@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import AccountsPOJO from "../components/AccountsPOJO";
 import AcctMultiple from "./AcctMultiple";
 
+<<<<<<< HEAD
 //import AcctTable from "./AcctTable";
+=======
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
 class AcctController extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+<<<<<<< HEAD
       minValue: 0,
       maxValue: 0,
       totValue: 0
@@ -102,6 +106,82 @@ class AcctController extends Component {
     // const accList = this.NewAccount.accList.map(item => {
     //   return <AcctSingle key={item.id} account={item} />;
     // });
+=======
+      //I AM THE PARENT
+      // newName: "",
+      // newBalance: 0,
+      // minValue: 0,
+      // maxValue: 0,
+      // totValue: 0
+    };
+    this.accList = new AccountsPOJO();
+    this.onCreateAccount = this.onCreateAccount.bind(this);
+    this.accList.onOpen("me", 54);
+    this.accList.onOpen("you", 6);
+    this.accList.onOpen("her", 9);
+  }
+
+  onCreateAccount = e => {
+    const name = document.getElementById("idName").value; //newnaem
+    const newBalance = Number(document.getElementById("idBalance").value);
+    this.accList.onOpen(name, newBalance); //newnaem
+    this.setState({ name: name, newBalance: newBalance }); //newnaem
+  };
+
+  onPickAccount = id => {
+    // console.log("im looking for target", id.target);
+    // console.log("i may be parent", id.target.parentNode);
+    return this.accList.accList.findIndex(item => item.id === Number(id));
+  };
+
+  onFindMinimum = e => {
+    console.log(Math.min(this.accList));
+    console.log(this.minValue);
+    // Math.min(this.accList);
+    var myMinimum = this.accList;
+    Math.min(...myMinimum);
+  };
+
+  //ways to make sure min max stay current
+  onFindMaximum = e => {};
+
+  onFindTotal = e => {};
+
+  onClose = id => {
+    this.accList.onClose(id);
+    this.setState({ nonsense: null });
+  };
+
+  onDeposit = (account, amount) => {
+    console.log("whereami", account.accBalance);
+    console.log("this from single", this.props.account);
+    let accList = this.accList.accList;
+    let index = accList.indexOf(account);
+    accList[index].onDeposit(amount);
+    this.setState({ account: account });
+  };
+
+  onWithdraw = (account, amount) => {
+    console.log("whereami", account.accBalance);
+    console.log("howdy", this.props.account);
+    let accList = this.accList.accList;
+    let index = accList.indexOf(account);
+    accList[index].onWithdraw(amount);
+    this.setState({ account: account });
+  };
+
+  onRename = account => {
+    console.log("whereami", account.accBalance);
+    console.log("this from single", this.props.account);
+    let accList = this.accList.accList;
+    let index = accList.indexOf(account);
+    const name = prompt("Please enter new Account Name");
+    accList[index].onRename(name);
+    this.setState({ account: account });
+  };
+
+  render() {
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
     return (
       <div>
         <div>
@@ -120,6 +200,7 @@ class AcctController extends Component {
                 className="OpenInputs"
                 size="10"
                 placeholder=""
+<<<<<<< HEAD
                 ref={newName => {
                   this.newName = newName;
                 }}
@@ -127,6 +208,15 @@ class AcctController extends Component {
                   this.setState({ newName: input.target.value })
                 }
                 //value={this.state.newName}
+=======
+                ref={name => {
+                  this.name = name; //newnaem
+                }}
+                // onChange={input =>
+                //   this.setState({ newNaem: input.target.value })
+                // }
+                // value={this.state.newNaem}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               />
               Balance: ($)
               <input
@@ -135,6 +225,7 @@ class AcctController extends Component {
                 className="OpenInputs"
                 size="10"
                 placeholder=""
+<<<<<<< HEAD
                 onChange={input =>
                   this.setState({
                     newBalance: Number(
@@ -143,6 +234,19 @@ class AcctController extends Component {
                   })
                 }
                 //value={this.state.newBalance}
+=======
+                ref={newBalance => {
+                  this.newBalance = newBalance;
+                }}
+                //   onChange={input =>
+                //     this.setState({
+                //       newBalance: Number(
+                //         input.target.value.replace(/[^0-9.]/g, "")
+                //       )
+                //     })
+                //   }
+                //   value={this.state.newBalance}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               />
               <button
                 id="open"
@@ -150,6 +254,7 @@ class AcctController extends Component {
                 type="text"
                 size="10"
                 placeholder="Open"
+<<<<<<< HEAD
                 // onClick={() => {
                 onClick={this.onCreateAccount}
 
@@ -170,6 +275,13 @@ class AcctController extends Component {
                 // }}
 
                 // onClick={() => removeProduct(product)}
+=======
+                onClick={() => {
+                  const name = this.state.name; //state.newnaem
+                  const balance = this.state.newBalance;
+                  this.onCreateAccount(name, balance);
+                }}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               >
                 Open
               </button>
@@ -181,6 +293,7 @@ class AcctController extends Component {
                 className="MinMaxInputs"
                 size="13"
                 placeholder="Create Account First"
+<<<<<<< HEAD
                 onChange={input =>
                   this.setState({
                     myMinimum: Number(
@@ -189,6 +302,10 @@ class AcctController extends Component {
                   })
                 }
                 value={this.props.myMinimum}
+=======
+                onChange={this.onFindMinimum}
+                value={this.minValue}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
               />
               Maximum: ($)
               <input
@@ -221,6 +338,7 @@ class AcctController extends Component {
                 value={this.props.myTotal}
               />
             </div>
+<<<<<<< HEAD
             <div>
               {/* {this.accList.map((value, index) => {
             <AcctSingle accounts={value} index={index} key={index} />;
@@ -253,6 +371,37 @@ ReactDOM.render(
         </div>
         <div>
           <AcctMultiple id="Multiple" />
+=======
+            <div />
+          </div>
+          <h3>LIST OF ACCOUNTS</h3>
+        </div>
+        <div />
+
+        <div className="CreateArray" onClick={this.onPickAccount}>
+          {this.accList.accList.length &&
+            this.accList.accList.map((account, i) => {
+              return (
+                // <div classNaem="CreateArray" onClick={this.onPickAccount}>
+                <AcctMultiple
+                  // classNaem="CreateArray"
+                  // onClick={this.onPickAccount}
+                  account={this.accList.accList[i]}
+                  name={account.accName}
+                  balance={account.accBalance}
+                  //amount={this.props.amount}
+                  id={account.id}
+                  onDeposit={this.onDeposit}
+                  onWithdraw={this.onWithdraw}
+                  onRename={this.onRename}
+                  onClose={this.onClose}
+                  // onShowBalance={account.}
+                  //other functions
+                  key={i}
+                />
+              );
+            })}
+>>>>>>> ce5400e42a445aa09eb8e014d59e7144f3466829
         </div>
       </div>
     );
