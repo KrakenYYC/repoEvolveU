@@ -1,6 +1,5 @@
 console.log("Hello Marvelous World");
 
-
 class Living extends Object {
 	constructor(age, name, mother, father, kid) {
 		super();
@@ -11,20 +10,18 @@ class Living extends Object {
 		this.kid = kid;
 	}
 
-	show(){
-		console.log("this is the show function", this.age)
+	show() {
+		console.log("this is the show function", this.age);
 	}
 
-	walk(param){
-		console.log("this is the walk function", this.age * param)
+	walk(param) {
+		console.log("this is the walk function", this.age * param);
 	}
 
-	birthday(){
-	this.age=this.age+1;
+	birthday() {
+		this.age = this.age + 1;
 	}
-
-
-};
+}
 
 // let j = new Living(3);
 // console.log("jjj", j);
@@ -35,7 +32,6 @@ class Living extends Object {
 // j.show();
 // j.birthday();
 // j.show();
-
 
 // let m = new Living(9);
 // console.log("mmm", m);
@@ -68,33 +64,29 @@ class Living extends Object {
 // y.walk(2);
 
 class Animal extends Living {
-	constructor(age, mother, name){
+	constructor(age, mother, name) {
 		super(age, mother, name);
-
 	}
-	show(){
+	show() {
 		console.log("name", this.name, "age", this.age, "mother", this.mother);
-
 	}
-};
+}
 
-
-console.log("new animal dog under living")
+console.log("new animal dog under living");
 let dog = new Animal(14, "marvin");
 dog.show();
 
 let cat = new Animal(3, "niko");
 cat.show();
 
-console.log("new Living person under Object")
+console.log("new Living person under Object");
 
-let carrie = new Living(22, "carly", "maude")
+let carrie = new Living(22, "carly", "maude");
 // carrie.show();
 
-console.log ("this is new", carrie)
+console.log("this is new", carrie);
 
-
-console.log("new Strange under Living")
-class Strange extends Living {};
+console.log("new Strange under Living");
+class Strange extends Living {}
 let psycho = new Strange(19);
 psycho.show();
